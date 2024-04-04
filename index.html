@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard | Alfa Farma</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.png') }}" />
+    <!-- Template : theme style -->
+    <link rel="stylesheet" href="/public/css/adminlte.min.css" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css" />
+
+    <!-- Fontawesome Icons -->
+    <link rel="stylesheet" href="/public/css/all.min.css" />
+
+    <!-- jQuery -->
+    <script src="/public/js/jquery.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <link rel="stylesheet" href="/public/css/dashboard-style.css" />
+  </head>
+
+  <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
+    <div class="wrapper">
+      <!-- {{-- Preloader start --}} -->
+      <div class="preloader flex-column justify-content-center align-items-center">
+        <img class="animation__wobble" src="" alt="Loading Animation" height="100" width="100" />
+      </div>
+      <!-- {{-- Preloader end --}} -->
+
+      <!-- {{-- Navbar start --}} -->
+      <nav id="navbar" class="main-header navbar navbar-expand bg-white border-0 justify-content-between px-4">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-black" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+          </li>
+        </ul>
+      </nav>
+      <!-- {{-- Navbar end --}} -->
+
+      <!-- {{-- Sidebar container start --}} -->
+      <aside id="sidebar" class="main-sidebar bg-white mybs">
+        <!-- {{-- Sidebar brand start --}} -->
+        <a href="" class="brand-link d-flex align-items-center justify-content-center border-0">
+          <div class="alphabet d-flex justify-content-center align-items-center mybgviolet rounded-circle me-2">
+            <h3 class="black myfs4 text-white">A</h3>
+          </div>
+          <div class="name brand-text">
+            <h3 id="brandText" class="myfs4 myblack">Apotek Alfa Farma</h3>
+          </div>
+        </a>
+        <!-- {{-- Sidebar brand end --}} -->
+
+        <!-- {{-- Sidebar content start --}} -->
+        <div id="sidebarMenu" class="sidebar px-3 pb-4 d-flex flex-column justify-content-between">
+          <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <li class="nav-header">MENU</li>
+              <li class="nav-item">
+                <a href="" class="nav-link w-auto d-flex gap-2 align-items-center active">
+                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>Dashboard</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="#"
+                  class="nav-link w-auto d-flex gap-2 align-items-center {{ Request::is('data-obat') || Request::is('kategori') || Request::is('unit') || Request::is('storage') || Request::is('supplier') || Request::is('tambah-obat') || Request::is('tambah-kategori') || Request::is('tambah-unit') || Request::is('tambah-supplier') || Request::is('data-obat/edit-obat*') || Request::is('kategori/edit-kategori*') || Request::is('unit/edit-unit*') || Request::is('storage/edit-storage*') || Request::is('supplier/edit-supplier*') ? 'active' : '' }}"
+                >
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Data Obat
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a
+                      href=""
+                      class="nav-link w-auto d-flex gap-2 align-items-center {{ Request::is('data-obat') || Request::is('tambah-obat') || Request::is('data-obat/edit-obat*') ? 'active' : '' }}"
+                    >
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Semua Obat</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href=""
+                      class="nav-link w-auto d-flex gap-2 align-items-center {{ Request::is('kategori') || Request::is('tambah-kategori') || Request::is('kategori/edit-kategori*') ? 'active' : '' }}"
+                    >
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Kategori</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href=""
+                      class="nav-link w-auto d-flex gap-2 align-items-center {{ Request::is('unit') || Request::is('tambah-unit') || Request::is('unit/edit-unit*') ? 'active' : '' }}"
+                    >
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Unit</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href=""
+                      class="nav-link w-auto d-flex gap-2 align-items-center {{ Request::is('storage') || Request::is('tambah-storage') || Request::is('storage/edit-storage*') ? 'active' : '' }}"
+                    >
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Penyimpanan</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href=""
+                      class="nav-link w-auto d-flex gap-2 align-items-center {{ Request::is('supplier') || Request::is('tambah-supplier') || Request::is('supplier/edit-supplier*') ? 'active' : '' }}"
+                    >
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Supplier</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li
+                class="nav-item {{ Request::is('transaction') || Request::is('transaction/harian') || Request::is('tambah-transaction') || Request::is('transaction/edit-transaction*') || Request::is('transaction/detail-transaction*') ? 'menu-open' : '' }}"
+              >
+                <a
+                  href="#"
+                  class="nav-link w-auto d-flex gap-2 align-items-center {{ Request::is('transaction') || Request::is('transaction/harian') || Request::is('tambah-transaction') || Request::is('transaction/edit-transaction*') || Request::is('transaction/detail-transaction*') ? 'active' : '' }}"
+                >
+                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>
+                    Data Penjualan
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a
+                      href=""
+                      class="nav-link w-auto d-flex gap-2 align-items-center {{ Request::is('transaction') || Request::is('tambah-transaction') || Request::is('transaction/edit-transaction*') || Request::is('transaction/detail-transaction*') ? 'active' : '' }}"
+                    >
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Semua Penjualan</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href=""
+                      class="nav-link w-auto d-flex gap-2 align-items-center {{ Request::is('transaction/harian') ? 'active' : '' }}"
+                    >
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Penjualan Harian</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+          <div class="profile mt-3">
+            <ul class="nav nav-pills nav-sidebar flex-column" role="menu" data-accordion="false">
+              <li class="d-flex align-items-center nav-item w-100">
+                <a href="https://www.flaticon.com/free-icons/person" title="person icons">
+                  <img src="/public/img/woman-avatar.png" alt="Avatar" class="avatar" />
+                </a>
+                <div class="ms-2">
+                  <p class="myfs5 fw-bold d-block">Sabila</p>
+                  <p class="myfs6 d-block">Owner</p>
+                </div>
+                <a href="" class="inline-block ms-auto">
+                  <p>
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- {{-- Sidebar content end --}} -->
+      </aside>
+      <!-- {{-- Sidebar container end --}} -->
+
+      <!-- {{-- Main section start --}} -->
+      <div id="main" class="content-wrapper mybgwhite-light-hover border-0">
+        <div class="container-fluid">
+          <section class="p-4">
+            <div class="d-flex justify-content-between">
+              <h1 class="m-0 myfs3">Dashboard</h1>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                </ol>
+              </nav>
+            </div>
+            <div class="overview row g-3 mt-4">
+              <div class="card-1 col-lg-4 col-md-6 col-12">
+                <div class="p-4 bg-white card mybs border-0">
+                  <div class="title ps-3 d-flex flex-wrap flex-wrap-reverse gap-2 justify-content-between">
+                    <div class="content">
+                      <h3 class="myfs6 mygrey-light">Transaksi Hari Ini</h3>
+                      <h4 class="myfs3 fw-semibold mt-2">Rp 650.000,00</h4>
+                    </div>
+                    <div class="p-2 mybgblue-light-hover icon rounded-1 text-center">
+                      <i class="fa-solid fa-chart-column myblue"></i>
+                    </div>
+                  </div>
+                  <h5 class="mygreen mt-3 myfs6 fw-semibold">
+                    <i class="fa-solid fa-arrow-up me-2"></i>2,5% Dari hari kemarin
+                  </h5>
+                </div>
+              </div>
+              <div class="card-2 col-lg-4 col-md-6 col-12">
+                <div class="p-4 bg-white card mybs border-0">
+                  <div class="title ps-3 d-flex flex-wrap flex-wrap-reverse gap-2 justify-content-between">
+                    <div class="content">
+                      <h3 class="myfs6 mygrey-light">Total Omset</h3>
+                      <h4 class="myfs3 fw-semibold mt-2">Rp 75.000.000,00</h4>
+                    </div>
+                    <div class="p-2 mybgyellow-light-hover icon rounded-1 text-center">
+                      <i class="fa-solid fa-money-bill-trend-up myyellow"></i>
+                    </div>
+                  </div>
+                  <h5 class="mygreen mt-3 myfs6 fw-semibold">
+                    <i class="fa-solid fa-arrow-up me-2"></i>+1,5% Dari bulan kemarin
+                  </h5>
+                </div>
+              </div>
+              <div class="card-3 col-lg-4 col-md-6 col-12">
+                <div class="p-4 bg-white card mybs border-0">
+                  <div class="title ps-3 d-flex flex-wrap flex-wrap-reverse gap-2 justify-content-between">
+                    <div class="content">
+                      <h3 class="myfs6 mygrey-light">Total Laba Bersih</h3>
+                      <h4 class="myfs3 fw-semibold mt-2">Rp 25.000.000,00</h4>
+                    </div>
+                    <div class="p-2 mybggreen-light-hover icon rounded-1 text-center">
+                      <i class="fa-solid fa-money-bill mygreen"></i>
+                    </div>
+                  </div>
+                  <h5 class="mygreen mt-3 myfs6 fw-semibold">
+                    <i class="fa-solid fa-arrow-up me-2"></i>+2% Dari bulan kemarin
+                  </h5>
+                </div>
+              </div>
+            </div>
+            <div class="card bg-white border-0 mybs p-4 mt-3">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="myfs4 fw-semibold">Statistik Penjualan</h2>
+                <div class="dropdown">
+                  <select class="form-select" id="selectDate" aria-label="Default select example">
+                    <option value="2023">2023</option>
+                    <option value="2024" selected>2024</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <canvas id="myChart" style="max-height: 360px"></canvas>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <!-- {{-- Main section end --}} -->
+
+      <!-- {{-- Footer start --}} -->
+      <footer class="main-footer px-4 py-3">
+        Copyright &copy; 2024. <b> Apotek Alfa Farma.</b>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block"><b>Version</b> 1.0</div>
+      </footer>
+      <!-- {{-- Footer end --}} -->
+    </div>
+
+    <!-- {{-- ChartJS --}} -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Template : AdminLTE App -->
+    <script src="/public/js/adminlte.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="/public/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Fontawesome Icons -->
+    <script src="/public/js/all.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="/public/js/script.js"></script>
+  </body>
+</html>

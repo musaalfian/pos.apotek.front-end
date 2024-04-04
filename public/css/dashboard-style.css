@@ -1,0 +1,22 @@
+.overview .title {
+    border-left: 4px solid;
+    border-radius: .25rem;
+}
+.overview .card-1 .title {
+    border-color: var(--blue);
+}
+.overview .card-2 .title {
+    border-color: var(--yellow);
+}
+.overview .card-3 .title {
+    border-color: var(--green);
+}
+.overview .card-4 .title {
+    border-color: var(--red);
+}
+.overview .icon {
+    height: fit-content;
+    aspect-ratio: 1/1;
+    width: 40px;
+    height: 40px;
+}
